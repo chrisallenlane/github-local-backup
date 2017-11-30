@@ -1,0 +1,19 @@
+glb (Github Local Backup)
+
+Backs up Github repositories locally.
+
+Usage:
+  glb [options] discover <token>
+  glb [options] download <target-dir>
+
+Options:
+  -h --help     Show this screen.
+  -v --version  Show version.
+
+Examples:
+
+  To back up from a list of repositories:
+    cat ./repositories.txt | glb download ~/src/github-backups
+
+  To back up all of your repositories:
+    glb discover $TOKEN | glb download ~/src/github-backups

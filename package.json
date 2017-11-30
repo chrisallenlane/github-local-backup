@@ -1,0 +1,51 @@
+{
+  "name": "github-local-backup",
+  "version": "0.0.1",
+  "description": "glb backs up Github repositories to your local filesystem.",
+  "homepage": "https://github.com/chrisallenlane/github-local-backup",
+  "author": {
+    "name": "Chris Allen Lane",
+    "email": "chris@chris-allen-lane.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "jshint app test",
+    "test": "tape 'test/*.js' | faucet"
+  },
+  "jshintConfig": {
+    "esnext": true,
+    "expr": true,
+    "laxbreak": true
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "docopt": "0.6.2",
+    "github": "^12.1.0",
+    "mkdirp": "^0.5.1",
+    "shelly": "0.0.3",
+    "split": "^1.0.1"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "jshint": "2.9.5",
+    "streamify-string": "^1.0.1",
+    "tape": "^4.6.0",
+    "tmp": "0.0.33"
+  },
+  "keywords": [
+    "backup",
+    "git",
+    "github"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chrisallenlane/github-local-backup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisallenlane/github-local-backup/issues"
+  },
+  "bin": {
+    "glb": "app/index.js"
+  },
+  "main": "app/index.js"
+}
