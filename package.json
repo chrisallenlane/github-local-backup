@@ -28,6 +28,7 @@
   "devDependencies": {
     "faucet": "0.0.1",
     "jshint": "2.9.5",
+    "lodash.includes": "^4.3.0",
     "streamify-string": "^1.0.1",
     "tape": "^4.6.0",
     "tmp": "0.0.33"

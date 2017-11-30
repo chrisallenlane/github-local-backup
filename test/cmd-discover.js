@@ -1,5 +1,6 @@
 const Streamify = require('streamify-string');
 const discover  = require('../app/cmd-discover');
+const includes  = require('lodash.includes');
 const stream    = require('stream');
 const test      = require('tape');
 
@@ -92,7 +93,7 @@ test('cmd-discover: should return the proper urls', function(t) {
       'git@github.com:johndoe/charlie.git\n',
     ];
     expected.forEach(function (url) {
-      urls.includes(url) ? t.pass() : t.fail();
+      includes(urls, url) ? t.pass() : t.fail();
     });
   });
 });

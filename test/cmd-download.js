@@ -1,6 +1,7 @@
 const Streamify = require('streamify-string');
 const download  = require('../app/cmd-download');
 const fs        = require('fs');
+const includes  = require('lodash.includes');
 const mkdir     = require('mkdirp').sync;
 const os        = require('os');
 const path      = require('path');
@@ -94,7 +95,7 @@ test('cmd-download: execute the appropriate commands (clone)', function(t) {
       'git clone git@github.com:johndoe/charlie.git --progress 2>&1',
     ];
     expected.forEach(function (cmd) {
-      commands.includes(cmd) ? t.pass() : t.fail();
+      includes(commands, cmd) ? t.pass() : t.fail();
     });
 
     // clean up
@@ -152,7 +153,7 @@ test('cmd-download: execute the appropriate commands (update)', function(t) {
       'git pull --all 2>&1',
     ];
     expected.forEach(function (cmd) {
-      commands.includes(cmd) ? t.pass() : t.fail();
+      includes(commands, cmd) ? t.pass() : t.fail();
     });
 
     // clean up
