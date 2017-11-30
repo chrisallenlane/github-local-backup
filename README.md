@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/chrisallenlane/github-local-backup.svg)](https://travis-ci.org/chrisallenlane/github-local-backup)
+[![npm](https://img.shields.io/npm/v/github-local-backup.svg)]()
+[![npm](https://img.shields.io/npm/dt/github-local-backup.svg)]()
+
+
 github-local-backup
 ===================
 `glb` backs up Github repositories to your local filesystem.
