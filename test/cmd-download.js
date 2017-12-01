@@ -16,7 +16,7 @@ const repos = [
 ].join('\n');
 
 // mock exec function
-const exec = function (cmd, options, callback) {
+const exec = function (cmd, callback) {
   return callback(null, cmd);
 };
 
@@ -90,9 +90,9 @@ test('cmd-download: execute the appropriate commands (clone)', function(t) {
 
     // assert that the expected commands were issued
     const expected = [
-      'git clone git@github.com:johndoe/alpha.git --progress 2>&1',
-      'git clone git@github.com:johndoe/bravo.git --progress 2>&1',
-      'git clone git@github.com:johndoe/charlie.git --progress 2>&1',
+      'cd ' + userPath + '; git clone git@github.com:johndoe/alpha.git --progress 2>&1',
+      'cd ' + userPath + '; git clone git@github.com:johndoe/bravo.git --progress 2>&1',
+      'cd ' + userPath + '; git clone git@github.com:johndoe/charlie.git --progress 2>&1',
     ];
     expected.forEach(function (cmd) {
       includes(commands, cmd) ? t.pass() : t.fail();
@@ -148,9 +148,9 @@ test('cmd-download: execute the appropriate commands (update)', function(t) {
 
     // assert that the expected commands were issued
     const expected = [
-      'git pull --all 2>&1',
-      'git pull --all 2>&1',
-      'git pull --all 2>&1',
+      'cd ' + repoAlpha   + '; git pull --all 2>&1',
+      'cd ' + repoBravo   + '; git pull --all 2>&1',
+      'cd ' + repoCharlie + '; git pull --all 2>&1',
     ];
     expected.forEach(function (cmd) {
       includes(commands, cmd) ? t.pass() : t.fail();

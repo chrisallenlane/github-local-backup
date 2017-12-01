@@ -1,6 +1,6 @@
 {
   "name": "github-local-backup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "glb backs up Github repositories to your local filesystem.",
   "homepage": "https://github.com/chrisallenlane/github-local-backup",
   "author": {

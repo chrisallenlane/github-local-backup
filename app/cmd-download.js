@@ -28,7 +28,7 @@ module.exports = function (options, github, stdin, stderr, stdout, exit, exec, d
     async.each(repos, backup, function (err) {
       // die on error
       if (err) {
-        stderr.write(err.message);
+        stderr.write(err);
         exit(1);
       }
 
@@ -61,23 +61,12 @@ module.exports = function (options, github, stdin, stderr, stdout, exit, exec, d
     // occurred by git's exit code.
 
     // shell command args
-    var cmd = '';
-    var cwd = '';
-
-    // clone
-    if (! fs.existsSync(clonePath)) {
-      cmd = command('git clone ? --progress 2>&1', url);
-      cwd = userPath;
-    }
-
-    // update
-    else {
-      cmd = command('git pull --all 2>&1');
-      cwd = clonePath;
-    }
+    const cmd = (! fs.existsSync(clonePath))
+      ? command('cd ?; git clone ? --progress 2>&1', userPath, url)
+      : command('cd ?; git pull --all 2>&1', clonePath);
 
     // execute
-    exec(cmd, { cwd: userPath }, function (err, output) {
+    exec(cmd, function (err, output) {
       if (err !== null) {
         return callback(output.trim()); // errors append an unwanted newline
       }
