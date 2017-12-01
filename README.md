@@ -47,7 +47,7 @@ user@host:~$ tree ~/src/github-backup
 github-backup
 ├── john-doe
 │   ├── alpha
-|   └── bravo
+│   ├── bravo
 └── jane-doe
     └── charlie
 ```
